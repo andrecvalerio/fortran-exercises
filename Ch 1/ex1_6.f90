@@ -8,7 +8,7 @@ program exe1_6
     write(*,*) "Type the dimension of the Fibonacci series:"
     read(*,*) n 
   
-    write(*,*) fib(n)
+    write(*,*) fib(n), binform(n)
     
 
 contains 
@@ -26,6 +26,25 @@ contains
             endif 
         enddo
 
+    end function 
+
+    ! (b) Add to this program a function binform(n) which uses Binet's formula to compute the n-th Fibonacci number
+
+    function binform(n)
+        implicit none
+        integer, intent(in) :: n
+        integer :: binform(n)
+        real*8 :: phi, five = 5.0
+
+        phi = (1 + sqrt(five))/2
+
+        do j = 1, n
+            if (j == 1 .or. j == 2) then 
+                binform(j) = 1
+            else 
+                binform(j) = (phi**j - (1 - phi)**j)/sqrt(five)
+            endif 
+        enddo
     end function 
     
 end program 
