@@ -29,7 +29,7 @@ program ex1_8
        enddo
     enddo
     
-    write(*,*) count_x/iter
+    write(*,*) count_x/iter*100d0
 
     contains
     SUBROUTINE init_random_seed()
